@@ -17,6 +17,12 @@ class CarouselDojo extends WidgetBase {
     update(object: mendix.lib.MxObject, callback: Function) {
         render(createElement(Carousel, { images: this.staticImages }), this.domNode);
 
+        if (module.hot) {
+            module.hot.accept("./components/Carousel", () => {
+                const NextCarousel = require("./components/Carousel").Carousel;
+                render(createElement(NextCarousel, { images: this.staticImages }), this.domNode);
+            });
+        }
         callback();
     }
 
@@ -30,7 +36,7 @@ class CarouselDojo extends WidgetBase {
 // Declare widget prototype the Dojo way
 // Thanks to https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/dojo/README.md
 // tslint:disable : only-arrow-functions
-dojoDeclare("com.mendix.widget.carousel.Carousel", [ WidgetBase ], (function (Source: any) {
+dojoDeclare("com.mendix.widget.carousel.Carousel", [ WidgetBase ], (function(Source: any) {
     let result: any = {};
     for (let i in Source.prototype) {
         if (i !== "constructor" && Source.prototype.hasOwnProperty(i)) {

@@ -21,7 +21,8 @@ describe("Carousel component", () => {
 
     it("should render carousel with 2 children", () => {
         const wrapper = render({ images: staticImages });
-        expect(wrapper.find(".carousel-inner").children().length).toEqual(staticImages.length);
+        const children = wrapper.find(".carousel-inner").children();
+        expect(children.length).toBe(staticImages.length);
     });
 
     it("should render carousel with the class 'carousel'", () => {

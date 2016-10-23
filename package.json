@@ -6,7 +6,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "karma start"
+    "test": "karma start",
+    "start": "node webpackDevServer.js"
   },
   "repository": {
     "type": "git",
@@ -48,7 +49,8 @@
     "tslint-eslint-rules": "^2.1.0",
     "typescript": "^2.0.3",
     "webpack": "^1.13.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^1.16.2",
+    "react-hot-loader": "^3.0.0-beta.6"
   },
   "dependencies": {
     "react": "^15.3.2",

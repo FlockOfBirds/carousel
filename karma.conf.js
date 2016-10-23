@@ -8,6 +8,8 @@ webpackConfig.externals.push("react/lib/ExecutionEnvironment");
 webpackConfig.externals.push("react/lib/ReactContext");
 webpackConfig.externals.push("react/addons");
 webpackConfig.externals.push("jsdom");
+webpackConfig.externals.splice(webpackConfig.externals.indexOf("react"), 1);
+webpackConfig.externals.splice(webpackConfig.externals.indexOf("react-dom"), 1);
 
 module.exports = function(config) {
     config.set({

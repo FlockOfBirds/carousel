@@ -1,7 +1,9 @@
 "use strict";
 var webpackConfig = require("./webpack.config");
-
-module.exports = function (grunt) {
+var webpackConfigWatch = Object.assign({}, webpackConfig, {
+    watch: true
+});
+module.exports = function(grunt) {
     var pkg = grunt.file.readJSON("package.json");
     grunt.initConfig({
         pkgName: pkg.name,
@@ -16,7 +18,7 @@ module.exports = function (grunt) {
                 }
             },
             sourceFiles: {
-                "files": [ "./src/**/*" ],
+                "files": [ "./src/**/*", "!./src/**/*.ts", "!./src/**/*.tsx" ],
                 "tasks": [ "copy:source" ]
             }
         },
@@ -56,6 +58,7 @@ module.exports = function (grunt) {
         },
         
         webpack: {
+            watch: webpackConfigWatch,            
             renderer: webpackConfig
         },
 
@@ -75,10 +78,10 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-contrib-copy");
     grunt.loadNpmTasks("grunt-webpack");
 
-    grunt.registerTask("default", [ "clean build", "watch" ]);    
+    grunt.registerTask("default", [ "clean:build", "webpack:watch" ,"compress:dist", "copy:mpk" , "watch" ]);    
     grunt.registerTask(
         "clean build",
-        "Compiles all the assets and copies the files to the build directory.", ["clean:build", "webpack" ,"compress:dist", "copy:mpk"]
+        "Compiles all the assets and copies the files to the build directory.", [ "clean:build", "webpack:renderer" ,"compress:dist", "copy:mpk" ]
     );
     grunt.registerTask("build", [ "clean build" ]);
 };
