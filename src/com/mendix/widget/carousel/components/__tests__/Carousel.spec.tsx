@@ -38,12 +38,12 @@ describe("Carousel component", () => {
 
         it("should have only one active child", () => {
             const children = shallowWrapper.find(".carousel-inner").children();
-            const activeChildren = children.filterWhere((c: any) => c.prop("active") === true);
+            const activeChildren = children.filterWhere(c => c.prop("active"));
             expect(activeChildren.length).toBe(1);
         });
     });
 
-    describe("FullDOM", () => {
+    describe("full DOM", () => {
         let fullDOMWrapper: ReactWrapper<CarouselProps, {}>;
         beforeEach(() => {
             spyOn(Carousel.prototype, "componentDidMount");

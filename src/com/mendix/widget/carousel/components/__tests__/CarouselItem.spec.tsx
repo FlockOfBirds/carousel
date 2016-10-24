@@ -19,7 +19,7 @@ describe("CarouselItem component", () => {
         )).toBe(true);
     });
 
-    describe("FullDOM", () => {
+    describe("full DOM", () => {
         let fullDOMWrapper: ReactWrapper<CarouselItemProps, {}>;
 
         beforeEach(() => {
