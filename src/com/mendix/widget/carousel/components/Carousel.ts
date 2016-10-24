@@ -45,7 +45,7 @@ export class Carousel extends Component<CarouselProps, CarouselState> {
 
     carouselItems(images: Image[], activeIndex: number) {
         return images.map((image, index) => createElement(CarouselItem, {
-            active: index === activeIndex ? true : false,
+            active: index === activeIndex,
             imageUrl: image.imageUrl,
             key: index
         }));
