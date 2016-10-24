@@ -7,7 +7,7 @@ import { CarouselItem } from "../CarouselItem";
 describe("Carousel component", () => {
     const staticImages = [
         { imageUrl: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" },
-        { imageUrl: "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" }
+        { imageUrl: "https://www.google.com/images/nav_logo242.png" }
     ];
     describe("shallow", () => {
         let shallowWrapper: ShallowWrapper<CarouselProps, {}>;
