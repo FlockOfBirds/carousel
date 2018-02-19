@@ -17,7 +17,7 @@ Displays images in a carousel.
 * Swipe through the images on mobile devices
 
 ## Dependencies
-Mendix 7.4
+Mendix 7.11.0
 
 ## Demo project
 http://carouselwidget.mxapps.io
